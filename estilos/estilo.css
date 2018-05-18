@@ -1,0 +1,13 @@
+.body{
+    background-image: url(../imagenes/unnamed.jpg);
+    background-color: #0069AF;
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #fff;
+    
+}
+
+.formulario label{
+    min-width: 209px;
+}

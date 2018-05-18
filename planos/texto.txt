@@ -1,0 +1,49 @@
+<?php
+
+class Todo {
+
+    public function Obtener($conexion, $identifi_usuario, $identifi_zona, $Nombre_usuario, $Email_usuario, $Fechadeingreso, $Horadeingreso) {
+        $query = "INSERT INTO proyecto (identifi_usuario, identifi_zona, Nombre_usuario, Email_usuario, Fechadeingreso, Horadeingreso) VALUES('$identifi_usuario', '$identifi_zona', '$Nombre_usuario', '$Email_usuario', '$Fechadeingreso', '$Horadeingreso')";
+        $consultar = mysqli_query($conexion, $query);
+        if ($consultar) {
+            $respuesta = "registrado con exito";
+        } else {
+            $respuesta = "problema con el registro";
+        }
+    }
+
+    public function consultar($conexion) {
+        $query = "SELECT * FROM pedido";
+        $consultar = mysqli_query($conexion, $query);
+        return $consultar;
+    }
+
+    public function consultarId($conexion, $identifi_usuario) {
+        $query = "SELECT * FROM pedido WHERE identifi_usuario = $identifi_usuario";
+        $consultar = mysqli_query($conexion, $query);
+        return $consultar;
+    }
+
+    public function editar($conexion, $Nombre_usuario, $Email_usuario, $identifi_usuario) {
+        $query = "UPDATE pedido set Nombre_usuario='$Nombre_usuario', Email_usuario='$Email_usuario' WHERE identifi_usuario = $identifi_usuario";
+        $consultar = mysqli_query($conexion, $query);
+        if ($consultar) {
+            $respuesta = "actualizado con exito";
+        } else {
+            $respuesta = "problema al actualizar";
+        }
+        return $respuesta;
+    }
+
+    public function eliminar($id, $conexion) {
+        $query = "DELETE FROM pedido WHERE identifi_usuario = $identifi_usuario";
+        $consultar = mysqli_query($conexion, $query);
+        if ($consultar) {
+            $respuesta = "eliminado con exito";
+        } else {
+            $respuesta = "problema al eliminarlo";
+        }
+        return $respuesta;
+    }
+
+}
